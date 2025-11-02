@@ -1,0 +1,70 @@
+# 🔒 Automated Security & Dependency Updates
+# MCP Sovereign Deployment - Maximum Security Configuration
+
+version: 2
+updates:
+  # Python dependencies - Weekly security updates
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "⬆️ security"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "security"
+      - "mcp-sovereign"
+    reviewers:
+      - "GlacierEQ"
+    
+  # Node.js dependencies - Weekly security updates
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "06:00"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "⬆️ security"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "security"
+      - "mcp-sovereign"
+    reviewers:
+      - "GlacierEQ"
+      
+  # GitHub Actions - Monthly security updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "wednesday"
+    commit-message:
+      prefix: "⬆️ actions"
+    labels:
+      - "github-actions"
+      - "security"
+      - "mcp-sovereign"
+    reviewers:
+      - "GlacierEQ"
+      
+  # Docker - Monthly security updates
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "thursday"
+    commit-message:
+      prefix: "⬆️ docker"
+    labels:
+      - "docker"
+      - "security"
+      - "mcp-sovereign"
+    reviewers:
+      - "GlacierEQ"
